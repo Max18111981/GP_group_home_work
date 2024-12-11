@@ -1,0 +1,29 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="category-title">Товары в категории "{{ category.name }}"</h1>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top" />
+                <input type="checkbox" id="toggle-description-{{ product.id }}" class="toggle-description" />
+                <label for="toggle-description-{{ product.id }}" class="btn btn-link toggle-label">Показать полное описание</label>
+                <div class="full-description">
+                    <p class="card-text short-description">{{ product.description }}</p>
+                    <p>{{ product.full_description }}</p>
+                    <p class="card-text"><strong>Цена: </strong>{{ product.price|floatformat:2 }} руб.</p>
+                    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success">Добавить в корзину</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Нет доступных товаров в этой категории.</p>
+    {% endfor %}
+</div>
+{% endblock %}
