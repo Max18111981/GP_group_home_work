@@ -1,0 +1,242 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    min-height: 100vh;
+    background-image: url('../media/заставка2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 15px;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+.icon-large {
+    font-size: 1.5rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.navbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-brand, .nav-link {
+    color: white;
+
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+}
+
+
+.btn {
+    transition: background-color 0.3s ease;
+    background-color: #0056b3;
+    align-items: center;
+}
+
+.btn:hover {
+    background-color: forestgreen;
+}
+
+.btn-return {
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.card {
+    background-color: transparent;
+    transition: transform 0.2s;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.card-body {
+    background-color: transparent;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.full-description {
+    display: none;
+    margin-bottom: 10px;
+}
+
+.toggle-description {
+    display: none;
+}
+
+.toggle-description:checked + label + .full-description {
+    display: block;
+}
+
+.toggle-label {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.toggle-label:hover {
+    color: white;
+    text-decoration: none;
+
+}
+
+.short-description {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.text-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.card-text {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: white;
+}
+
+.category-title {
+    text-align: center;!important;
+}
+
+.footer {
+    margin-top: 0;
+    padding: 20px;
+    background-color: whitesmoke;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;!important;
+    color: white;!important;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: forestgreen;!important;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 250px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        width: auto;
+    }
+
+    .footer {
+    }
+
+}

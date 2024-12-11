@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="category-title">Список товаров</h1>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text"><strong>Цена: </strong>{{ product.price }} руб.</p>
+                <a href="{% url 'category_products' product.category.id %}" class="btn btn-primary">Посмотреть в категории</a>
+                <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success">Добавить в корзину</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Нет доступных товаров.</p>
+    {% endfor %}
+</div>
+{% endblock %}
