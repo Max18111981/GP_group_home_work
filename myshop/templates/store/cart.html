@@ -1,0 +1,26 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Корзина</h1>
+<div class="row">
+    {% for item in cart_items %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.product.name }}</h5>
+                <p class="card-text">{{ item.product.description }}</p>
+                <p class="card-text"><strong>Цена: </strong>{{ item.product.price|floatformat:2 }} руб.</p>
+                <p class="card-text"><strong>Количество: </strong>{{ item.quantity }}</p>
+                <p class="card-text"><strong>Итого: </strong>{{ item.total_price|floatformat:2 }} руб.</p>
+                <a href="{% url 'update_cart_item' item.product.id %}" class="btn btn-danger">Уменьшить количество</a>
+                <a href="{% url 'add_to_cart' item.product.id %}" class="btn btn-success">Добавить еще</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Ваша корзина пуста.</p>
+    {% endfor %}
+</div>
+<a href="{% url 'checkout' %}" class="btn btn-primary btn-return">Оформить заказ</a>
+{% endblock %}
