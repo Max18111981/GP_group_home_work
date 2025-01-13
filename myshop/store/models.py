@@ -29,7 +29,7 @@ class Order(models.Model):
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField()
     order_date = models.DateTimeField(auto_now_add=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, default=None)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -49,9 +49,3 @@ class CartItem(models.Model):
     def __str__(self):
         return f'{self.quantity} of {self.product.name} in cart'
 
-    @property
-    def total_price(self):
-        return self.product.price * self.quantity
-
-    def __str__(self):
-        return f'{self.quantity} of {self.product.name} in cart'

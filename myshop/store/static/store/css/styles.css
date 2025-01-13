@@ -181,8 +181,15 @@ form {
     margin-top: 20px;
 }
 
+input::placeholder,
+input[type="password"]::placeholder {
+    color: #aaa;
+    opacity: 1;
+}
+
 input[type="text"],
 input[type="email"],
+input[type="password"],
 input[type="number"],
 textarea {
     width: 100%;
@@ -190,6 +197,8 @@ textarea {
     margin: 5px 0 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
 input[type="submit"] {

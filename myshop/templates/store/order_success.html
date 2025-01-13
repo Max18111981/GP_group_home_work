@@ -1,10 +1,7 @@
 {% extends 'store/base.html' %}
 {% load static %}
-
 {% block content %}
-<h1 class="category-title">Заказ успешно оформлен!</h1>
-<p>Спасибо, {{ order.customer_name }}! Ваш заказ был успешно оформлен.</p>
-<p>Номер заказа: {{ order.id }}</p>
-<p>Мы свяжемся с вами по адресу: {{ order.customer_email }}.</p>
-<a href="{% url 'product_list' %}" class="btn btn-primary btn-return">Вернуться к товарам</a>
+<h2>Заказ успешно добавлен!</h2>
+<p>Спасибо за ваш заказ. Мы свяжемся с вами в ближайшее время.</p>
+<a href="{% url 'home' %}" class="btn btn-primary">Вернуться на главную</a>
 {% endblock %}

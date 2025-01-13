@@ -1,0 +1,10 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<h1>Изменить заказ</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
+{% endblock %}
